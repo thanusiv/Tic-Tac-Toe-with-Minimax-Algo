@@ -5,20 +5,14 @@ class Minimax_Algorithm:
     def __init__(self):
         self.maximizing_player = Player.X
         self.minimizing_player = Player.O
-        self.infinity = float('Inf')
+        self.infinity = float('inf')
     
     def get_best_move(self, game, is_maxmizing):
         if game.is_over():
             return [self.evaluate_game(game), '']
         
         best_move = [None, None]
-
-        if is_maxmizing:
-            best_value = -self.infinity
-            player = self.maximizing_player
-        else:
-            best_value = self.infinity
-            player = self.minimizing_player
+        best_value = -self.infinity if is_maxmizing else self.infinity
 
         for move in game.get_available_moves():
             new_hypothetical_game = deepcopy(game)
