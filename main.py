@@ -23,7 +23,7 @@ def main():
                 print(e)
 
         if not game.is_over():
-            best_value, best_move = mini_max.get_best_move(game, False)
+            best_value, best_move = mini_max.get_best_move(game, False, -mini_max.infinity, mini_max.infinity)
             print('Best Value:', best_value)
             game.play_move(best_move[0], best_move[1])
 

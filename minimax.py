@@ -7,7 +7,7 @@ class Minimax_Algorithm:
         self.minimizing_player = Player.O
         self.infinity = float('inf')
     
-    def get_best_move(self, game, is_maxmizing):
+    def get_best_move(self, game, is_maxmizing, alpha, beta):
         if game.is_over():
             return [self.evaluate_game(game), '']
         
@@ -17,16 +17,21 @@ class Minimax_Algorithm:
         for move in game.get_available_moves():
             new_hypothetical_game = deepcopy(game)
             new_hypothetical_game.play_move(move[0], move[1])
-            hypothetical_best_value = self.get_best_move(new_hypothetical_game, not is_maxmizing)[0]
+            hypothetical_best_value = self.get_best_move(new_hypothetical_game, not is_maxmizing, alpha, beta)[0]
 
             if is_maxmizing:
                 if hypothetical_best_value > best_value:
                     best_value = hypothetical_best_value
+                    alpha = max(alpha, best_value)
                     best_move = move
             else:
                 if hypothetical_best_value < best_value:
                     best_value = hypothetical_best_value
+                    beta = min(beta, best_value)
                     best_move = move
+            
+            if alpha >= beta:
+                break
         
         return [best_value, best_move]
 
