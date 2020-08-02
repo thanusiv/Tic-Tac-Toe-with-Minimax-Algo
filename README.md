@@ -11,11 +11,9 @@
 
 ## Overview
 
-Evolving Strings is a simple project that showcases the Genetic Algorithm. The idea behind this project is to possess a population of strings that consist of at least a single individual that matches the target string. 
+This is a project that showcases the Minimax Algorithm. This project allows the user to play tic-tac-toe against an A.I who uses this algorithm to compute the best move that it can play at the current game state. In addition, I used the Alpha-Beta Pruning optimization technique on the vanilla Minimax Algorithm to speed up computation time. Even though the number of game states in tic-tac-toe is small relative to a game like chess, it sped up how long it took for the A.I to compute it's initial move dramatically. You can go to a previous commit where I didn't implement this technique to see the speed difference. I did not use any depth parameter in my algorithm simply because it would not affect the perceived difference the user will face when playing against the A.I. 
 
-Initially, the population will consist of individuals with a chromosome (the string) with random genes (individual characters). The fitness value is calculated by how many characters differ from the target string. In my case, a lower fitness is considered better where the best fitness value is 0. After fitness values are calculated for each individual in the population, the offsprings for the next generation are produced. The best 10% of individuals from the current gernation will automatically move on to the next generation and no changes will be made. For the remaining 90%, the top 50% of individuals from the current generation will be randomly chosen as parents and mated (cross-over in the Genetic Algorithm). There is equal opportunity for either parent to pass on their genes (character) to their child but there is a 20% chance that a completely random gene will be passed on (mutation). 
-
-Overtime, the generations will possess on average a better fitness score until eventually a generation possesses an individual who meets the target string.
+Try this out yourself and see how you fare against it!
 
 ## Demo
 
@@ -27,10 +25,9 @@ Simply clone the Github repository to a local directory and open and run the `ma
 
 ## Features
 
-- See how a population of strings evolve towards a goal 
-- Can alter the target string to see how many generations it takes to reach the target string
-- Edit parameters such as population size, chromosome length, gene set and fitness calculation to make the population more sophisticated
-- Implemented the Genetic Algorithm from scratch (fitness calculation, natural selection, cross-over, mutation)
+- Implemented both the Minimax Algorithm and the Alpha-Beta Pruning optimization technique from scratch
+- Allows the user to play against the A.I via the console of the IDE or terminal 
+- Tic-tac-toe game was also implemented from scratch and can be altered to a larger grid if wanted
 - Use of OOP in Python can be used as template for future projects
 
 ## Technologies Used
