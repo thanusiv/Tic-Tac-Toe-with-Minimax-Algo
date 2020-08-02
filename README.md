@@ -1,4 +1,4 @@
-# Evolving Strings
+# Tic-Tac-Toe using Minimax Algorithm with Alpha-Beta Pruning
 
 ## Table of Contents
 
@@ -40,4 +40,4 @@ Simply clone the Github repository to a local directory and open and run the `ma
 
 ## Acknowledgements
 
-- Thanks to [GeeksforGeeks](https://www.geeksforgeeks.org/genetic-algorithms/) for providing this idea and teaching me about this algorithm!
+- Thanks to [Codecademy](https://www.codecademy.com/catalog/all) for teaching me about the Minimax Algorithm and Alpha-Beta Pruning!
