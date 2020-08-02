@@ -26,11 +26,13 @@ class Mini_Max_Algorithm:
             hypothetical_best_value = self.get_best_move(new_hypothetical_game, not is_maxmizing)[0]
 
             if is_maxmizing:
-                best_value = max(best_value, hypothetical_best_value)
-                best_move = move
+                if hypothetical_best_value > best_value:
+                    best_value = hypothetical_best_value
+                    best_move = move
             else:
-                best_value = min(best_move, hypothetical_best_value)
-                best_move = move
+                if hypothetical_best_value < best_value:
+                    best_value = hypothetical_best_value
+                    best_move = move
         
         return [best_value, best_move]
 
