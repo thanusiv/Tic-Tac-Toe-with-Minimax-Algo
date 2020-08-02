@@ -2,12 +2,13 @@ from tic_tac_toe import TicTacToe
 
 def main():
     game = TicTacToe()
-    game.print_board()
-    game.play_move(0, 1)
-    game.print_board()
-    game.play_move(0,2)
-    game.print_board()
-    print(game.get_available_moves())
+    while not game.is_game_over():
+        game.print_board()
+        print('Available Moves:')
+        print(game.get_available_moves())
+        row = input('Please enter a row: ')
+        column = input('Please enter a column: ')
+        game.play_move(int(row), int(column))
 
 
 if __name__ == "__main__":

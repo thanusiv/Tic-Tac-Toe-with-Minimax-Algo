@@ -12,6 +12,8 @@ class TicTacToe:
     def play_move(self, row, column):
         if row < 0 or row > 2 or column < 0 or column > 2:
             raise Exception('Invalid move')
+        elif not self.available_moves:
+            raise Exception('No more possibele moves to complete. This game is over')
         elif self.board[row][column] != 0:
             raise Exception('This space is already occupied')
 
@@ -35,17 +37,19 @@ class TicTacToe:
         return self.available_moves
 
     def is_game_over(self):
-        if len(self.available_moves) > 3:
+        if len(self.available_moves) > 4:
             return False
+        elif not self.available_moves: # no more moves
+            return True
         
         # Check for row wins
         for row in range(3):
-            possible_player_to_win = self.board[row, 0]
+            possible_player_to_win = self.board[row][0]
             if possible_player_to_win == 0:
                 continue
             row_win = True
             for column in range(1,3):
-                if self.board[row, column] != possible_player_to_win:
+                if self.board[row][column] != possible_player_to_win:
                     row_win = False
                     break
             if row_win:
@@ -54,12 +58,12 @@ class TicTacToe:
 
         # Check for column wins
         for column in range(3):
-            possible_player_to_win = self.board[0, column]
+            possible_player_to_win = self.board[0][column]
             if possible_player_to_win == 0:
                 continue
             column_win = True
             for row in range(1,3):
-                if self.board[row, column] != possible_player_to_win:
+                if self.board[row][column] != possible_player_to_win:
                     column_win = False
                     break
             if column_win:
@@ -68,13 +72,13 @@ class TicTacToe:
 
         # Check for left to right diagonal win
         possible_player_to_win = self.board[0][0]
-        if self.board[1,1] == possible_player_to_win and self.board[2,2] == possible_player_to_win:
+        if self.board[1][1] == possible_player_to_win and self.board[2][2] == possible_player_to_win:
             self.player_won = Player.X if possible_player_to_win == 'X' else Player.O
             return True
 
         # Check for right to left diagonal win
         possible_player_to_win = self.board[0][2]
-        if self.board[1,1] == possible_player_to_win and self.board[2,0] == possible_player_to_win:
+        if self.board[1][1] == possible_player_to_win and self.board[2][0] == possible_player_to_win:
             self.player_won = Player.X if possible_player_to_win == 'X' else Player.O
             return True
         
