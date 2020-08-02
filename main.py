@@ -1,9 +1,9 @@
 from tic_tac_toe import TicTacToe
-from minimax import Mini_Max_Algorithm
+from minimax import Minimax_Algorithm
 
 def main():
     game = TicTacToe()
-    mini_max = Mini_Max_Algorithm()
+    mini_max = Minimax_Algorithm()
     while not game.is_over():
         print('\n')
         print('Current Board:')

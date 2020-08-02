@@ -1,7 +1,7 @@
 from player import Player
 from copy import deepcopy
 
-class Mini_Max_Algorithm:
+class Minimax_Algorithm:
     def __init__(self):
         self.maximizing_player = Player.X
         self.minimizing_player = Player.O
