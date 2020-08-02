@@ -11,9 +11,16 @@ def main():
         print(game.whos_turn.name, '\'s turn')
         print('Available Moves:')
         print(game.get_available_moves())
-        row = input('Please enter a row: ')
-        column = input('Please enter a column: ')
-        game.play_move(int(row), int(column))
+        
+        valid = False
+        while not valid:
+            try:
+                row = input('Please enter a row: ')
+                column = input('Please enter a column: ')
+                game.play_move(int(row), int(column))
+                valid = True
+            except Exception as e:
+                print(e)
 
         if not game.is_over():
             best_value, best_move = mini_max.get_best_move(game, False)
@@ -24,7 +31,7 @@ def main():
     print('The game is now over!')
 
     if not game.player_won:
-        print('The game was a tie!')
+        print('It was a tie!')
     else:
         print(game.player_won.name, 'won!')
 
