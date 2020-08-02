@@ -36,7 +36,7 @@ class TicTacToe:
     def get_available_moves(self):
         return self.available_moves
 
-    def is_game_over(self):
+    def is_over(self):
         if len(self.available_moves) > 4:
             return False
         elif not self.available_moves: # no more moves
