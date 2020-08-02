@@ -27,7 +27,6 @@ class TicTacToe:
             self.whos_turn = Player.X
 
     def print_board(self):
-        print('Current Board |', self.whos_turn.name, '\'s turn')
         print('-----')
         for row in self.board:
             print(row[0], row[1], row[2])
@@ -39,8 +38,6 @@ class TicTacToe:
     def is_over(self):
         if len(self.available_moves) > 4:
             return False
-        elif not self.available_moves: # no more moves
-            return True
         
         # Check for row wins
         for row in range(3):
@@ -80,6 +77,9 @@ class TicTacToe:
         possible_player_to_win = self.board[0][2]
         if self.board[1][1] == possible_player_to_win and self.board[2][0] == possible_player_to_win:
             self.player_won = Player.X if possible_player_to_win == 'X' else Player.O
+            return True
+
+        if not self.available_moves: # no more moves
             return True
         
         return False # if no other case is True, it must be False
